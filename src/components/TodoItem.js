@@ -1,6 +1,6 @@
 import {useRef} from "react";
 import {AiFillEdit, IoCheckmarkDoneSharp, IoClose} from "react-icons/all";
-
+import {motion} from 'framer-motion';
 
 const TodoItem = (props) => {
 
@@ -24,7 +24,22 @@ const TodoItem = (props) => {
     };
 
     return (
-        <li key={item.id} className='card'>
+        <motion.li
+            key={item.id}
+            className='card'
+            initial={{x:'150vw', transition: {type:'spring', duration:2}}}
+            animate={{x:'0', transition: {type:'spring', duration:2}}}
+            whileHover={{
+                scale:1.1,
+                transition: {type:'spring', duration:.1}
+            }}
+            exit={{
+                x: '-69vw',
+                scale: [1,0],
+                transition: {duration:.5},
+                background: 'rgba(255,0,0,1)'
+            }}
+        >
             <textarea
                 ref={inputRef}
                 disabled={inputRef}
@@ -34,32 +49,38 @@ const TodoItem = (props) => {
                 }}
             />
             <div className="btns">
-                <button
+                <motion.button
+                    whileHover={{scale:1.4}}
+                    whileTap={{scale:.9}}
                     onClick={changeFocus}
                 >
                     <AiFillEdit />
-                </button>
+                </motion.button>
                 {
                     item.completed === false && (
-                        <button
+                        <motion.button
+                            whileHover={{scale:1.4}}
+                            whileTap={{scale:.9}}
                             style={{color:'green'}}
                             onClick={() => {
                                 props.completeTodo(item.id);
                             }}
                         >
                             <IoCheckmarkDoneSharp />
-                        </button>
+                        </motion.button>
                     )
                 }
-                <button
+                <motion.button
+                    whileHover={{scale:1.4}}
+                    whileTap={{scale:.9}}
                     style={{color:'red'}}
                     onClick={() => props.removeTodo(item.id)}
                 >
                     <IoClose />
-                </button>
+                </motion.button>
             </div>
             { item.completed && <span className='completed'>done</span> }
-        </li>
+        </motion.li>
     )
 };
 

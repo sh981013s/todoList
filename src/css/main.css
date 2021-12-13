@@ -17,7 +17,7 @@ body {
     backgrond-size: cover;
     background-attachment: fixed;
     color: #222;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .App {
@@ -103,10 +103,12 @@ body {
 .displaytodos ul {
     list-style: none;
     display: flex;
-    /*align-self: flex-start;*/
+    margin: 0 10vw;
+    align-self: flex-start;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-left: 5%;
+    /*margin-left: 5%;*/
 }
 
 .card {
@@ -165,5 +167,23 @@ body {
     font-size: .8rem;
     padding: .3rem 1rem;
     border-radius: 20px;
+}
+
+
+@media Screen and (max-width: 640px) {
+/*    .displaytodos ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        margin-right: 0;
+    }*/
+}
+
+@media Screen and (max-width: 640px) {
+    .card {
+        width: 100%;
+    }
 }
 
