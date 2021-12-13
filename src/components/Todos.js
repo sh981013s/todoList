@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {connect} from "react-redux";
-import {addTodos, completeTodos, removeTodos, updateTodos} from "../redux/reducer";
+import {addTodos} from "../redux/reducer";
 import {GoPlus} from 'react-icons/go';
 import {motion} from 'framer-motion';
 

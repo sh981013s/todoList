@@ -4,7 +4,7 @@ import {motion} from 'framer-motion';
 
 const TodoItem = (props) => {
 
-    const {item, updateTodo, removeTodo, completeTodo} = props;
+    const {item, updateTodo} = props;
 
     const inputRef = useRef(true);
 
